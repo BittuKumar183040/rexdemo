@@ -5,11 +5,12 @@ import { gsap } from 'gsap'
 import Button from './Button'
 import GradientLabel from './GradientLabel'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger);
 
 export type ProductCardProps = {
-  logo?: React.ReactNode
+  logo?: string
   title: string
   description: string
   capabilitiesLabel?: string
@@ -161,7 +162,9 @@ const ProductCard = ({
 
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div ref={logoRef} className="shrink-0 h-12 w-12"> {logo} </div>
+          <div ref={logoRef} className="shrink-0 h-12 w-12">
+            {logo ? <img src={logo} alt={title}/> : null}
+          </div>
           <div ref={titleRef} style={{ opacity: 0.75 }}>
             <GradientLabel label={title} size="2xl" weight="bold" />
           </div>

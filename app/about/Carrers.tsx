@@ -1,3 +1,4 @@
+import Button from '../components/Button'
 import CursorEffect from '../components/CursorEffect'
 import GradientLabel from '../components/GradientLabel'
 import ParticleGrid from '../components/ParticleGrid'
@@ -57,11 +58,15 @@ const Carrers = () => {
             <p className="text-lg text-black dark:text-white mb-4">
               No openings at the moment
             </p>
-
-            <p className="text-sm text-black/50 dark:text-white/50 max-w-md">
-              We’re not hiring right now, but we’re always excited to connect with talented individuals.
-              Feel free to reach out or check back soon for future opportunities.
-            </p>
+            <div className=' flex justify-between'>
+              <p className="text-sm text-black/50 dark:text-white/50 max-w-md">
+                We’re not hiring right now, but we’re always excited to connect with talented individuals.
+                Feel free to reach out or check back soon for future opportunities.
+              </p>
+              <a href="https://www.linkedin.com/company/rexcrux/" >
+                <Button label='LinkedIn' />
+              </a>
+            </div>
 
             <div className="mt-6 text-xs uppercase tracking-widest text-cyan-500">
               Stay Connected

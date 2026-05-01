@@ -1,14 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import type { ReactNode } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 type MenuItem = {
-  icon?: ReactNode;
+  icon?: string;
   label: string;
   desc?: string;
   href: string;
@@ -127,7 +127,7 @@ export default function Menu({
               className="group flex items-start gap-3 p-3 transition cursor-pointer"
             >
               <div className="w-10 h-10 flex items-center justify-center shrink-0">
-                {item.icon}
+                <img src={item.icon} alt={item.label} />
               </div>
 
               <div className="flex-1 min-w-0 flex flex-col gap-0.5">

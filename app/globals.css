@@ -29,9 +29,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Raleway", Helvetica, sans-serif;
-  overflow: hidden; /* ❗ required for Lenis */
 }
-
 
 * {
   scrollbar-width: thin;

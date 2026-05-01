@@ -53,13 +53,15 @@ const HeroSection = () => {
 
         <div className="flex gap-6 ">
           <Button label={current.cta} onClick={() => { window.location.href = current.ctaLink }} />
-          <div data-cursor="magnetic" data-cursor-label="READ RESEARCH"
-            className="flex gap-2 items-center cursor-pointer"
-            onClick={() => { window.location.href = current.secondaryCtaLink }}
-          >
-            <p className="text-sm opacity-75"> {current.secondaryCta} </p>
-            <ArrowIcon />
-          </div>
+          { current.secondaryCta &&
+            <div data-cursor="magnetic" data-cursor-label="READ RESEARCH"
+              className="flex gap-2 items-center cursor-pointer"
+              onClick={() => { if (current.secondaryCtaLink) window.location.href = current.secondaryCtaLink }}
+            >
+              <p className="text-sm opacity-75"> {current.secondaryCta} </p>
+              <ArrowIcon />
+            </div>
+          }
         </div>
       </div>
 

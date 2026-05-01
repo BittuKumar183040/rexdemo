@@ -13,10 +13,10 @@ import Link from 'next/link'
 
 const Navbar = () => {
   const pathname = usePathname()
-
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const mobileRef = useRef<HTMLDivElement | null>(null)
+  const navContainerRef = useRef<HTMLDivElement | null>(null)
   const indicatorRef = useRef<HTMLDivElement | null>(null)
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({})
   const navRef = useRef<HTMLDivElement | null>(null)
@@ -46,6 +46,45 @@ const Navbar = () => {
       })
     }
   }, [mobileOpen])
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.hidden) setMobileOpen(false)
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [])
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!mobileOpen) return
+      if (!navContainerRef.current) return
+
+      if (!navContainerRef.current.contains(e.target as Node)) {
+        setMobileOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [mobileOpen])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const moveIndicator = (el: HTMLDivElement | null) => {
     if (!el || !indicatorRef.current) return
@@ -94,10 +133,15 @@ const Navbar = () => {
     moveIndicator(el)
   }
 
+  /* ================= UI ================= */
   return (
-    <nav className="fixed px-2.5 md:px-2.5 lg:px-25 flex items-center py-2 w-full bg-white dark:bg-black z-50">
+    <nav
+      ref={navContainerRef} // 🔥 important
+      className="fixed px-2.5 md:px-2.5 lg:px-25 flex items-center py-2 w-full bg-white dark:bg-black z-50"
+    >
       <BrandLogo />
 
+      {/* DESKTOP */}
       <div className="hidden md:flex flex-1 justify-center">
         <div
           ref={navRef}
@@ -124,17 +168,19 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:block">
-        <Link href="/">
+        <Link href="/research">
           <Button label="Explore" onClick={() => {}} />
         </Link>
       </div>
 
+      {/* MOBILE TOGGLE */}
       <div className="md:hidden ml-auto">
         <button onClick={() => setMobileOpen(prev => !prev)}>
           {mobileOpen ? <X size={24} /> : <MenuIcon size={24} />}
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       <div
         ref={mobileRef}
         className="absolute top-full left-0 w-full bg-white shadow-md rounded-lg md:hidden overflow-hidden"

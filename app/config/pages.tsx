@@ -26,16 +26,14 @@ export const Pages = [
     secondaryCtaLink: "/research"
   }
   ,{
-    title: "Getting Known: ABC Conference 2026",
-    highlight: "Conference 2026",
-    desc: "Showcasing Our Latest Research at ABC 2026. Discover how our cutting-edge symbolic intelligence platform is revolutionizing financial modeling, computational biology, and quantum computing.",
-    tagline: "Showcasing Our Latest Research at ABC 2026",
-    image:  BaseURL + "conference.jpg",
+    title: "44th Annual J.P. Morgan Healthcare Conference",
+    highlight: "Morgan Healthcare Conference",
+    desc: "RexCrux staff attended the 44th Annual J.P. Morgan Healthcare Conference hashtag#JPM2026 for the first time! Exciting event to learn more about the current BioPharm industry, specifically applications in AI, ML, and Quantum Computing.",
+    tagline: "We attended the 44th Annual J.P. Morgan Healthcare Conference",
+    image:  "https://media.licdn.com/dms/image/v2/D5622AQGW6uGvTSsIcA/feedshare-shrink_2048_1536/B56ZvIT8L5KIAk-/0/1768592229437?e=1779321600&v=beta&t=lhCzI4sVJE8BvNCNO8LwjfdXjsFNv9WgjB5nr4nbn3M",
     isDark: true,
-    cta: "Know More",
-    ctaLink: "/contact",
-    secondaryCta: "READ RESEARCH",
-    secondaryCtaLink: "/research"
+    cta: "Read More",
+    ctaLink: "https://www.linkedin.com/posts/rexcrux_jpm2026-activity-7418013468856983552-Jzym?utm_source=share&utm_medium=member_desktop&rcm=ACoAACO-p1IBI_svkRLekUsJ4uacfzhP-LswLoU",
   }
 
 ]

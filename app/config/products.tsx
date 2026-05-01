@@ -17,7 +17,7 @@ export const products = {
   label: 'Product',
   list: [
     {
-      icon: <img src="/rexcrux/foldshield.png" alt="Foldshield" />,
+      icon: "/rexcrux/foldshield.png",
       label: 'FOLDSHIELD++',
       desc: 'Symbolic Protein Folding & Mutation Intelligence',
       href: '/foldshield',
@@ -32,7 +32,7 @@ export const products = {
       buttonLabel: 'Know More',
     },
     {
-      icon: <img src="/rexcrux/raindrop.png" alt="RAINDROP"/>,
+      icon: "/rexcrux/raindrop.png",
       label: 'RAINDROP™',
       desc: 'Markets as entropy-driven symbolic systems',
       href: '/raindrop',
@@ -48,7 +48,7 @@ export const products = {
       buttonLabel: 'Know More',
     },
     {
-      icon: <img src="/rexcrux/qphase.png" alt="QPHASE"/>,
+      icon: "/rexcrux/qphase.png",
       label: 'QPHASE™',
       desc: 'Translates symbolic structure into executable quantum programs',
       href: '/qphase',
